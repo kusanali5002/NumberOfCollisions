@@ -80,6 +80,7 @@ public class BlockCollision extends JPanel implements ActionListener {
 
     private void pauseSimulation() {
         if (!isPaused) {
+            block1.velocity = 0;
             timer.stop();
             isPaused = true;
         }
