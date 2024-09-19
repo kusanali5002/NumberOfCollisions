@@ -13,6 +13,7 @@ public class BlockCollision extends JPanel implements ActionListener {
     private JTextField massInput1, massInput2, velocityInput;
     private JButton startButton, pauseButton;
     private boolean isPaused = false;
+    private final MusicPlayer musicPlayer = new MusicPlayer();
 
     private static final int BLOCK_SIZE = 50;
 
@@ -150,13 +151,7 @@ public class BlockCollision extends JPanel implements ActionListener {
 
     // sound
     public void playCollisionSound() {
-        try {
-            Clip clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(new File("D:/NumberOfCollision/resources/collision.wav")));
-            clip.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        musicPlayer.playSound("resources/collision.wav", false);
     }
 
     public static void main(String[] args) {
